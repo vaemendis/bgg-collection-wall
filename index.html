@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>BGG Wall</title>
+  <link rel="stylesheet" href="wall.css">
+</head>
+
+<body>
+  <div id="wall">
+    <div v-if="loaded">
+      <game v-for="game in games" :game="game" :key="game.gameId" />      
+    </div>
+    <div v-else>
+      <h2>LOADING...</h2>
+    </div>
+  </div>
+  
+  <!-- SCRIPTS -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/fetch-jsonp@1.1.2/build/fetch-jsonp.min.js"></script>
+  <script src="wall.js "></script>
+</body>
+
+</html>

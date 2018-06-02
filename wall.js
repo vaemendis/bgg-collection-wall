@@ -5,14 +5,14 @@ var GameComponent = {
   template:
     `<div class="cell">
       <div class="game">
-      <a :href="gameUrl">
-        <div class=thumb>          
-            <img :src="game.thumbnail"/>          
-        </div>
-        <div class="label">
-          {{game.name}}
-        </div>
-      </a>
+        <a :href="gameUrl">
+          <div class=thumb>          
+              <img :src="game.thumbnail"/>          
+          </div>
+          <div class="label">
+            {{game.name}}
+          </div>
+        </a>
       </div>
     </div>`,
     computed: {
@@ -26,7 +26,8 @@ const gameVue = new Vue({
   el: '#wall',
   data: {
     loaded: false,
-    games: []
+    games: [],
+    error: null
   },
   components: {
     game: GameComponent
@@ -49,8 +50,9 @@ const gameVue = new Vue({
         this.games = json.filter(g => {return g.owned})
         this.loaded = true
       })
-      .catch(function(error) {
-        alert('Could not load games from server.\n\n' + error)
+      .catch((error) => {
+        this.error = error.message
+        this.loaded = true
       })
   }
 })

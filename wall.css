@@ -4,6 +4,10 @@ body {
   text-align: center;
 }
 
+[v-cloak] {
+  display: none;
+}
+
 .game {
   float: left;
   width: 160px;
@@ -34,7 +38,22 @@ a {
   color: #444444;
 }
 
-a img {
+.game a img {
   border: 1px solid #AAAAAA;
   box-shadow: 10px 10px 5px #888888;
+}
+
+.clear {
+  clear: both;
+}
+
+#github {
+  margin-top:20px;
+  width: 24px;
+  height: 24px;
+  opacity: 0.2;
+}
+
+#github:hover {
+  opacity: 0.7;
 }

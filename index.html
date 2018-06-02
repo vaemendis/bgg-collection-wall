@@ -10,13 +10,23 @@
 <body>
   <div id="wall">
     <div v-if="loaded">
-      <game v-for="game in games" :game="game" :key="game.gameId" />      
+      <div v-if="error" v-cloak>
+        An error occured:<br>{{error}}
+      </div>
+      <game v-for="game in games" :game="game" :key="game.gameId" />
     </div>
     <div v-else>
       <h2>LOADING...</h2>
     </div>
   </div>
-  
+
+
+  <div class="clear">
+    <a href="https://github.com/vaemendis/bgg-collection-wall">
+      <img id="github" src="github.png">
+    </a>
+  </div>
+
   <!-- SCRIPTS -->
   <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/fetch-jsonp@1.1.2/build/fetch-jsonp.min.js"></script>
